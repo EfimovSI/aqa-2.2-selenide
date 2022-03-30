@@ -35,17 +35,17 @@ public class SelenideFormTest {
         $(withText("Успешно")).should(appear, Duration.ofSeconds(15));
     }
 
-//    @Test
-//    void shouldAcceptЁ() {
-//        $("[data-test-id='city'] input").val("Москва");
-//        calendar.add(Calendar.DAY_OF_MONTH, 4); //добавляем 4 дня к текущей дате
-//        $("[data-test-id='date'] input").doubleClick().val(dateFormat.format(calendar.getTime()));
-//        $("[data-test-id='name'] input").val("Семёнов Пётр");
-//        $("[data-test-id='phone'] input").val("+79991112233");
-//        $("[data-test-id='agreement'] span").click();
-//        $(withText("Забронировать")).click();
-//        $(withText("Успешно")).should(appear, Duration.ofSeconds(15));
-//    }
+    @Test
+    void shouldAcceptЁ() {
+        $("[data-test-id='city'] input").val("Москва");
+        calendar.add(Calendar.DAY_OF_MONTH, 4); //добавляем 4 дня к текущей дате
+        $("[data-test-id='date'] input").doubleClick().val(dateFormat.format(calendar.getTime()));
+        $("[data-test-id='name'] input").val("Семёнов Пётр");
+        $("[data-test-id='phone'] input").val("+79991112233");
+        $("[data-test-id='agreement'] span").click();
+        $(withText("Забронировать")).click();
+        $(withText("Успешно")).should(appear, Duration.ofSeconds(15));
+    }
 
     @Test
     void shouldAcceptDash() {
@@ -109,29 +109,29 @@ public class SelenideFormTest {
         $("[data-test-id='agreement'].input_invalid").should(appear);
     }
 
-//    @Test
-//    void shouldNotSendWithoutSurname() {
-//        $("[data-test-id='city'] input").val("Москва");
-//        calendar.add(Calendar.DAY_OF_MONTH, 4); //добавляем 4 дня к текущей дате
-//        $("[data-test-id='date'] input").doubleClick().val(dateFormat.format(calendar.getTime()));
-//        $("[data-test-id='name'] input").val("Иван");
-//        $("[data-test-id='phone'] input").val("+79991112233");
-//        $("[data-test-id='agreement'] span").click();
-//        $(withText("Забронировать")).click();
-//        $("[data-test-id='name'].input_invalid .input__sub").shouldHave(text("Поле обязательно для заполнения"));
-//    }
+    @Test
+    void shouldNotSendWithoutSurname() {
+        $("[data-test-id='city'] input").val("Москва");
+        calendar.add(Calendar.DAY_OF_MONTH, 4); //добавляем 4 дня к текущей дате
+        $("[data-test-id='date'] input").doubleClick().val(dateFormat.format(calendar.getTime()));
+        $("[data-test-id='name'] input").val("Иван");
+        $("[data-test-id='phone'] input").val("+79991112233");
+        $("[data-test-id='agreement'] span").click();
+        $(withText("Забронировать")).click();
+        $("[data-test-id='name'].input_invalid .input__sub").shouldHave(text("Поле обязательно для заполнения"));
+    }
 
-//    @Test
-//    void shouldNotSendWithDashForName() {
-//        $("[data-test-id='city'] input").val("Москва");
-//        calendar.add(Calendar.DAY_OF_MONTH, 4); //добавляем 4 дня к текущей дате
-//        $("[data-test-id='date'] input").doubleClick().val(dateFormat.format(calendar.getTime()));
-//        $("[data-test-id='name'] input").val("-");
-//        $("[data-test-id='phone'] input").val("+79991112233");
-//        $("[data-test-id='agreement'] span").click();
-//        $(withText("Забронировать")).click();
-//        $("[data-test-id='name'].input_invalid .input__sub").shouldHave(text("Поле обязательно для заполнения"));
-//    }
+    @Test
+    void shouldNotSendWithDashForName() {
+        $("[data-test-id='city'] input").val("Москва");
+        calendar.add(Calendar.DAY_OF_MONTH, 4); //добавляем 4 дня к текущей дате
+        $("[data-test-id='date'] input").doubleClick().val(dateFormat.format(calendar.getTime()));
+        $("[data-test-id='name'] input").val("-");
+        $("[data-test-id='phone'] input").val("+79991112233");
+        $("[data-test-id='agreement'] span").click();
+        $(withText("Забронировать")).click();
+        $("[data-test-id='name'].input_invalid .input__sub").shouldHave(text("Поле обязательно для заполнения"));
+    }
 
     @Test
     void shouldNotSendCityWithinList() {
